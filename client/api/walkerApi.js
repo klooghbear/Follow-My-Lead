@@ -34,7 +34,7 @@ export function getWalker(id) {
 }
 
 export function editWalker (id, walker) {
-  return request.put(URL + id + '/edit') // this needs an id
+  return request.put(URL + id + '/edit') 
   .set({ 'Authorization': `Bearer ${getEncodedToken()}` })
   .set({ 'Accept': 'application/json' })
     .send(walker)
@@ -42,4 +42,3 @@ export function editWalker (id, walker) {
     .catch(err => console.log(err))
 }
 
-//api ok

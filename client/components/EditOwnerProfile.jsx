@@ -1,5 +1,5 @@
 import React from 'react'
-import { getOwner } from '../api/ownerApi'
+import { getOwner, editOwner } from '../api/ownerApi'
 
 
 
@@ -18,25 +18,32 @@ class EditOwnerProfile extends React.Component {
   }
 
 handleChange = (e) =>{
+  console.log('handlechange working')
   this.setState({
     [e.target.name]: e.target.value
   })
 }
 
 handleSubmit = (e) => {
+  console.log('submit working')
   e.preventDefault()
   this.setState({
     first_name: this.state.first_name,
     last_name: this.state.last_name,
+    email: this.state.email,
     photo: this.state.photo,
     location: this.state.location,
-    email: this.state.email,
   })
+let owner = this.state
+let id = this.props.match.params.id
+editOwner(id, owner)
+this.props.history.push('/owner/' + id)
 }
 
 render() {
   return(
     <div>
+  
       <h1>Edit Owner Details</h1>
       <form onSubmit = {this.handleSubmit}>
       <br/>
@@ -63,6 +70,7 @@ render() {
       <br />
       <input type="submit" value="Submit"  />
       </form>
+
     </div>
   )
 }

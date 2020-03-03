@@ -24,4 +24,3 @@ server.use('/api', authRoute)
 
 module.exports = server
 
-//server not problem

@@ -34,15 +34,27 @@ router.get('/:id', (req, res) => {
         })
 })
 
-router.put('/:id', (req, res) => {
-    let id = req.params.id
-    let owner = req.body
 
-    db.updateOwner(id, owner)
-    .then(response => {
-        res.json({})
-    })
+router.put('/:id/edit', getTokenDecoder(), (req,res) =>{
+    console.log(req.params.id)
+    console.log(req.body)
+    let id = req.params.id
+    let updatedOwner = req.body
+    db.editOwner(id, updatedOwner)
 })
+
+
+//commented out by Josh - new edit owner route written. 3/3
+
+// router.put('/:id', (req, res) => {
+//     let id = req.params.id
+//     let owner = req.body
+
+//     db.updateOwner(id, owner)
+//     .then(response => {
+//         res.json({})
+//     })
+// })
 
 
 module.exports = router 
