@@ -16,6 +16,9 @@
     "server": "node server",
     "test": "jest --watchAll"
   },
+  "engines": {
+    "node": "12.14.0"
+  },
   "babel": {
     "presets": [
       "@babel/preset-env",
