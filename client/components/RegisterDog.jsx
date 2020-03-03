@@ -3,6 +3,7 @@ import React from "react"
 import { getDecodedToken } from 'authenticare/client'
 
 import { addDog, getDogs } from '../api/dogApi'
+import { getUserDetails } from "../api/walkerApi"
 
 class RegisterDog extends React.Component {
     constructor(props) {
@@ -11,7 +12,7 @@ class RegisterDog extends React.Component {
         this.state = {
             // feedback_id: '',
             id: 0,
-            owner_id: getDecodedToken().id,
+            owner_id: 0,
             name: '',
             breed: '',
             sex: '',
@@ -44,7 +45,6 @@ class RegisterDog extends React.Component {
     handleSubmit = (e) => {
         e.preventDefault()
         addDog({
-            owner_id: this.state.owner_id,
             name: this.state.name,
             breed: this.state.breed,
             sex: this.state.sex,
@@ -68,164 +68,169 @@ class RegisterDog extends React.Component {
             <div>
                 <h1 className="page-title">Dog Registration Form</h1>
                 <div className="form-container">
-                <form className='form' onSubmit={this.handleSubmit}>
-                    <img className="logoform" src="/images/Logo2.png" alt="logo" />
-                    <br />
-                    <label> Name: </label>
-                    <br />
-                    <input className='input'
-                        type='text'
-                        name='name'
-                        onChange={this.handleChange} />
-                    <br />
+                    <form className='form' onSubmit={this.handleSubmit}>
+                        <img className="logoform" src="/images/Logo2.png" alt="logo" />
+                        <br />
+                        <label> Name: </label>
+                        <br />
+                        <input className='input'
+                            type='text'
+                            name='name'
+                            onChange={this.handleChange}
+                            autocomplete="off" />
+                        <br />
 
-                    <label> Photo: </label>
-                    <br />
-                    <input className='input'
-                        type='text'
-                        name='photo'
-                        onChange={this.handleChange}
-                        placeholder='Upload File' />
-                    <br />
+                        <label> Photo: </label>
+                        <br />
+                        <input className='input'
+                            type='text'
+                            name='photo'
+                            onChange={this.handleChange}
+                            autocomplete="off"
+                            placeholder='Upload File' />
+                        <br />
 
-                    <label> Breed: </label>
-                    <br />
-                    <input className='input'
-                        type='text'
-                        name='breed'
-                        onChange={this.handleChange} />
-                    <br />
+                        <label> Breed: </label>
+                        <br />
+                        <input className='input'
+                            type='text'
+                            name='breed'
+                            onChange={this.handleChange}
+                            autocomplete="off" />
+                        <br />
 
-                    <label> Sex: </label>
-                    <br />
-                    <select className='input'
-                        type='text'
-                        name='sex'
-                        onChange={this.handleChange} >
-                        <option
-                            value='select'>select
+                        <label> Sex: </label>
+                        <br />
+                        <select className='input'
+                            type='text'
+                            name='sex'
+                            onChange={this.handleChange} >
+                            <option
+                                value='select'>select
                         </option>
-                        <option
-                            value='Male'>Male
+                            <option
+                                value='Male'>Male
                         </option>
-                        <option
-                            value='Female'>Female
+                            <option
+                                value='Female'>Female
                         </option>
-                    </select>
-                    <br />
+                        </select>
+                        <br />
 
-                    <label> Age: </label>
-                    <br />
-                    <select className='input'
-                        type='text'
-                        name='age'
-                        onChange={this.handleChange} >
-                        <option
-                            value='select'>select
+                        <label> Age: </label>
+                        <br />
+                        <select className='input'
+                            type='text'
+                            name='age'
+                            onChange={this.handleChange} >
+                            <option
+                                value='select'>select
                         </option>
-                        <option
-                            value='Puppy'>Puppy
+                            <option
+                                value='Puppy'>Puppy
                         </option>
-                        <option
-                            value='Adolescent'>Adolescent
+                            <option
+                                value='Adolescent'>Adolescent
                         </option>
-                        <option
-                            value='Adult'>Adult
+                            <option
+                                value='Adult'>Adult
                         </option>
-                        <option
-                            value='Senior'>Senior
+                            <option
+                                value='Senior'>Senior
                         </option>
-                    </select>
-                    <br />
+                        </select>
+                        <br />
 
-                    <label> Size: </label>
-                    <br />
-                    <select className='input'
-                        type='text'
-                        name='size'
-                        onChange={this.handleChange} >
-                        <option
-                            value='select'>select
+                        <label> Size: </label>
+                        <br />
+                        <select className='input'
+                            type='text'
+                            name='size'
+                            onChange={this.handleChange} >
+                            <option
+                                value='select'>select
                         </option>
-                        <option
-                            value='Small'>Small 9kg or less
+                            <option
+                                value='Small'>Small 9kg or less
                         </option>
-                        <option
-                            value='Medium'>Medium 10-22kg
+                            <option
+                                value='Medium'>Medium 10-22kg
                         </option>
-                        <option
-                            value='Large'>Large 22kg or more
+                            <option
+                                value='Large'>Large 22kg or more
                         </option>
-                    </select>
-                    <br />
+                        </select>
+                        <br />
 
-                    <label> Activity Requirements: </label>
-                    <br />
-                    <select className='input'
-                        type='text'
-                        name='activity_requirements'
-                        onChange={this.handleChange} >
-                        <option
-                            value='select'>select
+                        <label> Activity Requirements: </label>
+                        <br />
+                        <select className='input'
+                            type='text'
+                            name='activity_requirements'
+                            onChange={this.handleChange} >
+                            <option
+                                value='select'>select
                         </option>
-                        <option
-                            value='30-45mins'>30-45 minutes
+                            <option
+                                value='30-45mins'>30-45 minutes
                         </option>
-                        <option
-                            value='45-60mins'>45-60 minutes
+                            <option
+                                value='45-60mins'>45-60 minutes
                         </option>
-                        <option
-                            value='60-90mins'>60-90 minutes
+                            <option
+                                value='60-90mins'>60-90 minutes
                         </option>
-                    </select>
-                    <br />
+                        </select>
+                        <br />
 
-                    <label> Good With Other Dogs: </label>
-                    <br />
-                    <select className='input'
-                        type='text'
-                        name='good_with_other_dogs'
-                        onChange={this.handleChange} >
-                        <option
-                            value='select'>select
+                        <label> Good With Other Dogs: </label>
+                        <br />
+                        <select className='input'
+                            type='text'
+                            name='good_with_other_dogs'
+                            onChange={this.handleChange} >
+                            <option
+                                value='select'>select
                         </option>
-                        <option
-                            value='Yes'>Yes
+                            <option
+                                value='Yes'>Yes
                         </option>
-                        <option
-                            value='No'>No
+                            <option
+                                value='No'>No
                         </option>
-                    </select>
-                    <br />
+                        </select>
+                        <br />
 
-                    <label> Special Requirements: </label>
-                    <br />
-                    <input className='input'
-                        type='text'
-                        name='special_requirements'
-                        onChange={this.handleChange} />
-                    <br />
+                        <label> Special Requirements: </label>
+                        <br />
+                        <textarea className='input'
+                            type='text'
+                            name='special_requirements'
+                            onChange={this.handleChange} />
+                        <br />
 
-                    <label> Vet Practice: </label>
-                    <br />
-                    <input className='input'
-                        type='text'
-                        name='vet_name'
-                        onChange={this.handleChange} />
-                    <br />
+                        <label> Vet Practice: </label>
+                        <br />
+                        <input className='input'
+                            type='text'
+                            name='vet_name'
+                            onChange={this.handleChange}
+                            autocomplete='off' />
+                        <br />
 
-                    <label> Vet Contact: </label>
-                    <br />
-                    <input className='input'
-                        type='text'
-                        name='vet_contact'
-                        onChange={this.handleChange} />
-                    <br />
-                    <br />
-                    <input className='button'
-                        type="submit"
-                        value="Submit" />
-                </form>
+                        <label> Vet Contact: </label>
+                        <br />
+                        <input className='input'
+                            type='text'
+                            name='vet_contact'
+                            onChange={this.handleChange}
+                            autocomplete='off' />
+                        <br />
+                        <br />
+                        <input className='button'
+                            type="submit"
+                            value="Submit" />
+                    </form>
                 </div>
             </div>
         )

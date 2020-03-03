@@ -24,6 +24,8 @@ class DogList extends React.Component {
 
     render() {
         return (
+            <>
+            <h1 className="page-title">Dogs to walk...</h1>
             <div className="dog-align">
                 {this.state.dogList.map(dog => {
                     return (
@@ -35,6 +37,7 @@ class DogList extends React.Component {
                     )
                 })}
             </div>
+            </>
         )
 
     }

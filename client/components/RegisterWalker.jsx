@@ -63,7 +63,8 @@ class RegisterWalker extends React.Component {
                         <input className='input'
                             type='text' 
                             name='username' 
-                            onChange={this.handleChange} />
+                            onChange={this.handleChange}
+                            autocomplete="off" />
                     <br />
 
                     <label> Password: </label>
@@ -72,7 +73,8 @@ class RegisterWalker extends React.Component {
                             type="password" 
                             id="pwd"
                             name='password' 
-                            onChange={this.handleChange} />
+                            onChange={this.handleChange}
+                            autocomplete="off" />
                     <br />
 
                     <label> Confirm Password: </label>
@@ -81,7 +83,8 @@ class RegisterWalker extends React.Component {
                             type="password" 
                             id="pwd"
                             name='password' 
-                            onChange={this.handleChange} />
+                            onChange={this.handleChange}
+                            autocomplete="off" />
                     <br />
 
                     <label> First name: </label>
@@ -89,7 +92,8 @@ class RegisterWalker extends React.Component {
                         <input className='input'
                             type='text' 
                             name='first_name' 
-                            onChange={this.handleChange} />
+                            onChange={this.handleChange}
+                            autocomplete="off" />
                     <br />
 
                     <label> Last name: </label>
@@ -97,15 +101,17 @@ class RegisterWalker extends React.Component {
                         <input className='input'
                             type='text' 
                             name='last_name' 
-                            onChange={this.handleChange} />
+                            onChange={this.handleChange}
+                            autocomplete="off" />
                     <br />
 
                     <label> About: </label>
                     <br />
-                        <input className='input'
+                        <textarea className='input'
                             type='text' 
-                            name='blurbgit ' 
-                            onChange={this.handleChange} />
+                            name='blurb' 
+                            onChange={this.handleChange}
+                            autocomplete="off" />
                     <br />
 
                     <label> Email: </label>
@@ -113,7 +119,8 @@ class RegisterWalker extends React.Component {
                         <input className='input'
                             type='text' 
                             name='email' 
-                            onChange={this.handleChange} />
+                            onChange={this.handleChange}
+                            autocomplete="off" />
                     <br />
 
                     <label> Photo: </label>
@@ -122,7 +129,8 @@ class RegisterWalker extends React.Component {
                             type='text' 
                             name='photo' 
                             onChange={this.handleChange}
-                            placeholder='add your image URL here...' />
+                            placeholder='add your image URL here...'
+                            autocomplete="off" />
                     
                     <br />
 
@@ -131,7 +139,8 @@ class RegisterWalker extends React.Component {
                         <select className='input'
                             type='text' 
                             name='location' 
-                            onChange={this.handleChange} >
+                            onChange={this.handleChange}
+                            autocomplete="off" >
                         <option
                             value='select'>select
                         </option>
@@ -303,7 +312,8 @@ class RegisterWalker extends React.Component {
                     
                     <input className='button'
                         type="submit" 
-                        value="Submit" />
+                        value="Submit"
+                        autocomplete="off" />
                 </form>
             </div>
             </>

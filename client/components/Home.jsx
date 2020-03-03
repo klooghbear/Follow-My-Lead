@@ -25,8 +25,8 @@ class Home extends React.Component {
                         <div className="home-page-ptag">Partnering People and Pooches!</div>
 
                         <div className="register-buttons">
-                            <Link className="button" to='/Register/Owner' >Register As An Owner</Link>
-                            <Link className="button" to='/Register/Walker' >Register As A Dog Walker</Link>
+                            <Link className="button" to='/Register/Owner' >Register to have your dog walked</Link>
+                            <Link className="button" to='/Register/Walker' >Register to walk a dog</Link>
                         </div>
 
                     </div>
@@ -36,7 +36,7 @@ class Home extends React.Component {
                         <div className="blurb-headline">Who are we? </div>
                         <br />
                         <div className="blurb-text">We are a group of web development students who all happen to love dogs!
-                        We are working together to improve our development skills, by creating a platform for dog lovers that can't own dogs, and dog owners that don't always have the time to walk them, to get in contact and help each other out.
+                        We are working together to improve our development skills by creating a platform for dog lovers that can't own dogs and dog owners that don't always have the time to walk them.
                         </div>
                     </div>
 

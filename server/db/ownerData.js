@@ -1,7 +1,5 @@
-const knex = require('knex')
-const config = require('../../knexfile')
-const env = process.env.NODE_ENV || 'development'
-const connection = knex(config[env])
+
+const connection = require('./connection')
 
 function getOwners(db = connection) {
     return db('owner_table').select()
@@ -16,7 +14,7 @@ function getOwner(id, db = connection) {
 
 
 //Add auth shit
-function addOwner(owner, db=connection){
+function addOwner(owner, db = connection) {
     return db('owner_table')
         .insert(owner).debug()
 }
@@ -29,18 +27,18 @@ function addOwner(owner, db=connection){
 
 // }
 
-function editOwner(id, owner, db= connection){
+function editOwner(id, owner, db = connection) {
     console.log('db function working')
     return db('owner_table')
-    .where('id', id)
-    .update({
-        first_name: owner.first_name,
-        last_name: owner.last_name,
-        email: owner.email,
-        photo: owner.photo,
-        location: owner.location     
-    })
-    .then()
+        .where('id', id)
+        .update({
+            first_name: owner.first_name,
+            last_name: owner.last_name,
+            email: owner.email,
+            photo: owner.photo,
+            location: owner.location
+        })
+        .then()
 }
 
 module.exports = {

@@ -1,13 +1,12 @@
 import React from "react"
-import {Link} from 'react-router-dom'
+
 
  function Footer () {
     return(
         <div className="footer">
-            
-            <a href="#" className="fa fa-twitter"></a>
-            <a href="#" className="fa fa-facebook"></a>
-            <a href="#" className="fa fa-instagram"></a>
+            <a href="https://twitter.com/dogs" className="fa fa-twitter" ></a>
+            <a href="https://www.facebook.com/i.love.dogs.in" className="fa fa-facebook"></a>
+            <a href="https://www.instagram.com/dogsofinstagram/?hl=en" className="fa fa-instagram"></a>
         </div>
     )
 }

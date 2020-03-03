@@ -13,7 +13,7 @@ class Nav extends React.Component {
         }
     }
 
-    componentDidUpdate() {
+    componentDidMount() {
         if (isAuthenticated()) {
             const id = getDecodedToken().id
 

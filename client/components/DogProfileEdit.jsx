@@ -57,6 +57,7 @@ class DogProfileEdit extends React.Component {
               name="Name"
               onChange={this.handleChange}
               placeholder="Name"
+              autocomplete="off"
             />
           </label>
           <br />
@@ -68,6 +69,7 @@ class DogProfileEdit extends React.Component {
               name="Breed"
               onChange={this.handleChange}
               placeholder="Breed"
+              autocomplete="off"
             />
           </label>
           <br />
@@ -79,6 +81,7 @@ class DogProfileEdit extends React.Component {
               name="Sex"
               onChange={this.handleChange}
               placeholder="Sex"
+              autocomplete="off"
             />
           </label>
           <br />
@@ -90,6 +93,7 @@ class DogProfileEdit extends React.Component {
               name="Age"
               onChange={this.handleChange}
               placeholder="Age"
+              autocomplete="off"
             />
           </label>
           <br />
@@ -101,6 +105,7 @@ class DogProfileEdit extends React.Component {
               name="Size"
               onChange={this.handleChange}
               placeholder="Size"
+              autocomplete="off"
             />
           </label>
           <br />
@@ -112,6 +117,7 @@ class DogProfileEdit extends React.Component {
               name="Activity Requirements"
               onChange={this.handleChange}
               placeholder="Activity Requirements"
+              autocomplete="off"
             />
           </label>
           <br />
@@ -123,6 +129,7 @@ class DogProfileEdit extends React.Component {
               name="Good with other Dogs"
               onChange={this.handleChange}
               placeholder="Good with other Dogs"
+              autocomplete="off"
             />
           </label>
           <label>
@@ -133,6 +140,7 @@ class DogProfileEdit extends React.Component {
               name="Special Requirements"
               onChange={this.handleChange}
               placeholder="Special Requirements"
+              autocomplete="off"
             />
           </label>
           <label>
@@ -143,6 +151,7 @@ class DogProfileEdit extends React.Component {
               name="photo"
               onChange={this.handleChange}
               placeholder="Photo"
+              autocomplete="off"
             />
           </label>
           {/* <ImageUploader

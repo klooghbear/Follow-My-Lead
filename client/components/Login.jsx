@@ -40,7 +40,6 @@ class Login extends React.Component {
     render() {
         return (
             <div>
-
                 <h1 className="page-title">Login</h1>
                 <div className="form-container">
                 <form className='form' onSubmit={this.handleSubmit}>
@@ -51,17 +50,17 @@ class Login extends React.Component {
                     <label> Username:</label>
                     <br />
                  
-                    <input className='input' type='text' placeholder='username' name='username' onChange={this.handlChange} />
+                    <input className='input' type='text' placeholder='username' name='username' onChange={this.handlChange} autocomplete="off"/>
                     <br/>
                     <br />
                     <label> Password: </label>
                     <br />
                    
-                    <input className='input' type='password' placeholder='password' name='password' onChange={this.handlChange} />
+                    <input className='input' type='password' placeholder='password' name='password' onChange={this.handlChange} autocomplete="off"/>
                     <br/>
                     <br />
                   
-                    <input className='button' type="submit" value="Submit" />
+                    <input className='button' type="submit" value="Submit" autocomplete="off" />
                 </form>
                 <br />
                 </div>
