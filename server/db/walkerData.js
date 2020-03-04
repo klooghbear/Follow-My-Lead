@@ -18,7 +18,7 @@ function getUserByName(username, db = connection) {
 
 function addWalker(walker, db = connection) {
     return db('walker_table')
-        .insert(walker).debug()
+        .insert(walker, 'id').debug()
 }
 
 function getWalkers(db = connection) {
