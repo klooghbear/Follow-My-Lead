@@ -1,27 +1,24 @@
-import React from 'react'
-import { HashRouter as Router, Route } from 'react-router-dom'
-
+import React from "react"
+import { HashRouter as Router, Route } from "react-router-dom"
 
 // import Footer from './Footer'
-import Nav from './Nav'
-import Home from './Home'
-import Login from './Login'
-import DogList from './DogList'
-import DogProfile from './DogProfile'
-import RegisterOwner from './RegisterOwner'
-import RegisterWalker from './RegisterWalker'
-import RegisterDog from './RegisterDog'
-import DogProfileEdit from './DogProfileEdit'
+import Nav from "./Nav"
+import Home from "./Home"
+import Login from "./Login"
+import DogList from "./DogList"
+import DogProfile from "./DogProfile"
+import RegisterOwner from "./RegisterOwner"
+import RegisterWalker from "./RegisterWalker"
+import RegisterDog from "./RegisterDog"
+import DogProfileEdit from "./DogProfileEdit"
 
-import OwnerProfile from './OwnerProfile'
-import WalkerProfile from './WalkerProfile'
-import EditOwnerProfile from './EditOwnerProfile'
-import WalkerProfileEdit from './WalkerProfileEdit'
-import About from './About'
-import Contact from './Contact'
-import WorkInProgress from './WorkInProgress'
-
-
+import OwnerProfile from "./OwnerProfile"
+import WalkerProfile from "./WalkerProfile"
+import EditOwnerProfile from "./EditOwnerProfile"
+import WalkerProfileEdit from "./WalkerProfileEdit"
+import About from "./About"
+import Contact from "./Contact"
+import WorkInProgress from "./WorkInProgress"
 
 const App = () => {
   return (
@@ -39,7 +36,7 @@ const App = () => {
         <Route path="/doglist" component={DogList} />
         <Route exact path="/walker/:id" component={WalkerProfile} />
         <Route path="/dog/:id" component={DogProfile} />
-        <Route  path="/walker/:id/edit" component={WalkerProfileEdit} />
+        <Route path="/walker/:id/edit" component={WalkerProfileEdit} />
         <Route path='/dogEdit/' component={DogProfileEdit} />
         <Route path="/about" component={About} />
         <Route path="/contact" component={Contact} />
@@ -52,5 +49,4 @@ const App = () => {
 
 export default App
 
-
-//commented out DogProfile, as component got deleted in merge
+// commented out DogProfile, as component got deleted in merge

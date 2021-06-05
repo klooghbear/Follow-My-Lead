@@ -11,30 +11,30 @@ module.exports = {
   editWalker
 }
 
-function getUserByName (username, db = connection) {
+function getUserByName(username, db = connection) {
   return db("user_table")
     .select()
     .where("username", username)
     .first()
 }
 
-function addWalker (walker, db = connection) {
+function addWalker(walker, db = connection) {
   return db("walker_table")
     .insert(walker).debug()
 }
 
-function getWalkers (db = connection) {
+function getWalkers(db = connection) {
   return db("walker_table")
 }
 
-function getWalker (id, db = connection) {
+function getWalker(id, db = connection) {
   return db("walker_table")
     .select()
     .where({ id: id })
     .first()
 }
 
-function editWalker (id, walker, db = connection) {
+function editWalker(id, walker, db = connection) {
   return db("walker_table")
     .where("id", id)
     .update({

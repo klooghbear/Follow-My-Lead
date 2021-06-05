@@ -8,7 +8,7 @@ module.exports = {
   getUserByName
 }
 
-function createUser (user, db = connection) {
+function createUser(user, db = connection) {
   return userExists(user.username, db)
     .then(exists => {
       if (exists) {
@@ -26,14 +26,14 @@ function createUser (user, db = connection) {
     })
 }
 
-function getUserByName (username, db = connection) {
+function getUserByName(username, db = connection) {
   return db("user_table")
     .select()
     .where("username", username)
     .first()
 }
 
-function userExists (username, db = connection) {
+function userExists(username, db = connection) {
   return db("user_table")
     .count("id as n")
     .where("username", username)
@@ -42,7 +42,7 @@ function userExists (username, db = connection) {
     })
 }
 
-function getUserDetails (id, db = connection) {
+function getUserDetails(id, db = connection) {
   return db("walker_table")
     .where("user_id", id)
     .first()

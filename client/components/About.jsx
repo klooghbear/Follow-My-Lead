@@ -1,12 +1,12 @@
-import React from 'react';
+import React from "react"
 
 const imgStyle = {
-  height: '5%',
-  width: '40%',
-  display: 'block',
-  'margin-left': '-20%', // half the width (and negative)
-  'padding-left': '50%'
-};
+  height: "5%",
+  width: "40%",
+  display: "block",
+  "margin-left": "-20%", // half the width (and negative)
+  "padding-left": "50%"
+}
 
 function About() {
   return (
@@ -16,10 +16,12 @@ function About() {
       <div className="blurb-container">
         <div className="blurb-text">
           <p>Rich, Izzy, Josh, Seb, Lui, Scott.</p>
-          <p>We are a group of web development students at EDA Wellington.  We love dogs and coding, and decided to combine these interests by
-          building 'Follow My Lead', a platform where dog-less dog lovers and
-          busy dog owners can meet to arrange dog walks!</p>
-          
+          <p>
+            We are a group of web development students at EDA Wellington.  We
+            love dogs and coding, and decided to combine these interests by
+            building 'Follow My Lead', a platform where dog-less dog lovers and
+            busy dog owners can meet to arrange dog walks!
+          </p>
         </div>
       </div>
       <br />
@@ -27,7 +29,7 @@ function About() {
       <div>
       </div>
     </div>
-  );
+  )
 }
 
-export default About;
+export default About

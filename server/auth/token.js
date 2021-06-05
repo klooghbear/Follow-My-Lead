@@ -4,7 +4,7 @@ module.exports = {
   issue
 }
 
-function issue (req, res) {
+function issue(req, res) {
   res.json({
     ok: true,
     message: "Authentication succesful",
@@ -12,6 +12,6 @@ function issue (req, res) {
   })
 }
 
-function createToken (id) {
+function createToken(id) {
   return jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: "1d" })
 }

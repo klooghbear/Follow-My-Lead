@@ -1,28 +1,28 @@
 const connection = require("./connection")
 
-function getOwners (db = connection) {
+function getOwners(db = connection) {
   return db("owner_table").select()
 }
 
-function getOwner (id, db = connection) {
+function getOwner(id, db = connection) {
   return db("owner_table")
     .where("id", id)
     .first()
 }
 
-function addOwner (owner, db = connection) {
+function addOwner(owner, db = connection) {
   return db("owner_table")
     .insert(owner).debug()
 }
 
-function updateOwner (id, owner, db = connection) {
+function updateOwner(id, owner, db = connection) {
   return db("owner_table")
     .where("id", id)
     .update(owner)
     .insert(owner).debug()
 }
 
-function editOwner (id, owner, db = connection) {
+function editOwner(id, owner, db = connection) {
   console.log("db function working")
   return db("owner_table")
     .where("id", id)

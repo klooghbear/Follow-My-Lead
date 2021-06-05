@@ -67,6 +67,10 @@
             {
                 "args": "none"
             }
+        ],
+        "space-before-function-paren": [
+            "error",
+            "never"
         ]
     },
     "settings": {
