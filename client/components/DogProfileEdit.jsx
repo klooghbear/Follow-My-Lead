@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 
-import { getDog } from "../api/dogApi"
+import { editDog } from "../api/dogApi"
 
 export default class DogProfileEdit extends Component {
   constructor(props) {
@@ -28,29 +28,46 @@ export default class DogProfileEdit extends Component {
     this.setState({
       [e.target.name]: e.target.value
     })
-  };
-
-  onDrop(photo) {
-    this.setState({
-      photos: this.state.pictures.concat(photo)
-    })
   }
 
   handleSubmit(e) {
     e.preventDefault()
 
-    console.log("add")
-  };
+    this.setState({
+      owner_id: this.state.owner_id,
+      feedback_id: this.state.feedback_id,
+      name: this.state.name,
+      breed: this.state.breed,
+      sex: this.state.sex,
+      age: this.state.age,
+      size: this.state.size,
+      activity_requirements: this.state.activity_requirements,
+      good_with_other_dogs: this.state.good_with_other_dogs,
+      special_requirements: this.state.special_requirements,
+      photos: this.state.photos,
+      vet_name: this.state.vet_name,
+      vet_contact: this.state.vet_contact
+    })
+
+    const owner = this.state
+    const id = this.props.match.params.id
+
+    editDog(id, owner).then(() => {
+      this.props.history.push(`/dog/${id}`)
+    })
+  }
 
   render() {
     return (
       <div>
         <form className='form' onSubmit={this.handleSubmit}>
-          <h1 className="page-title">Edit Dog Registration Form</h1>
-          <br />
+          <h1 className="page-title">
+            Edit Dog Registration Form
+          </h1>
+          
           <label>
-            {" "}
             Name:
+
             <input
               type="text"
               name="Name"
@@ -59,10 +76,10 @@ export default class DogProfileEdit extends Component {
               autoComplete="off"
             />
           </label>
-          <br />
+
           <label>
-            {" "}
             Breed:
+
             <input
               type="text"
               name="Breed"
@@ -71,10 +88,10 @@ export default class DogProfileEdit extends Component {
               autoComplete="off"
             />
           </label>
-          <br />
+
           <label>
-            {" "}
             Sex:
+
             <input
               type="text"
               name="Sex"
@@ -83,10 +100,10 @@ export default class DogProfileEdit extends Component {
               autoComplete="off"
             />
           </label>
-          <br />
+
           <label>
-            {" "}
             Age:
+
             <input
               type="text"
               name="Age"
@@ -95,10 +112,10 @@ export default class DogProfileEdit extends Component {
               autoComplete="off"
             />
           </label>
-          <br />
+
           <label>
-            {" "}
             Size:
+
             <input
               type="text"
               name="Size"
@@ -107,10 +124,10 @@ export default class DogProfileEdit extends Component {
               autoComplete="off"
             />
           </label>
-          <br />
+
           <label>
-            {" "}
             Activity Requirements:
+
             <input
               type="text"
               name="Activity Requirements"
@@ -119,10 +136,10 @@ export default class DogProfileEdit extends Component {
               autoComplete="off"
             />
           </label>
-          <br />
+
           <label>
-            {" "}
             Good with other Dogs:
+
             <input
               type="text"
               name="Good with other Dogs"
@@ -131,9 +148,10 @@ export default class DogProfileEdit extends Component {
               autoComplete="off"
             />
           </label>
+
           <label>
-            {" "}
             Special Requirements:
+
             <input
               type="text"
               name="Special Requirements"
@@ -142,9 +160,10 @@ export default class DogProfileEdit extends Component {
               autoComplete="off"
             />
           </label>
+
           <label>
-            {" "}
             Photo:
+
             <input
               type="text"
               name="photo"
@@ -153,17 +172,10 @@ export default class DogProfileEdit extends Component {
               autoComplete="off"
             />
           </label>
-          {/* <ImageUploader
-            withIcon={true}
-            buttonText="Choose images"
-            onChange={this.onDrop}
-            imgExtension={['.jpg', '.gif', '.png', '.gif']}
-            maxFileSize={5242880}
-          /> */}
           
           <label>
-            {" "}
             Vet Name:
+
             <input
               type="text"
               name="Vet Name"
@@ -171,9 +183,10 @@ export default class DogProfileEdit extends Component {
               placeholder="Vet Name"
             />
           </label>
+
           <label>
-            {" "}
             Vet contact:
+
             <input
               type="text"
               name="Vet contact"
@@ -181,8 +194,8 @@ export default class DogProfileEdit extends Component {
               placeholder="Vet contact"
             />
           </label>
-          <br />
-          <input type="submit" value="Submit" />
+
+          <input type="submit" value="Submit"/>
         </form>
       </div>
     )

@@ -1,9 +1,9 @@
 import React, { Component } from "react"
-import { getOwner, editOwner } from "../api/ownerApi"
+import { editOwner } from "../api/ownerApi"
 
 export default class EditOwnerProfile extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
 
     this.state = {
       first_name: "",
@@ -11,20 +11,18 @@ export default class EditOwnerProfile extends Component {
       photo: "",
       location: "",
       email: ""
-
     }
   }
 
   handleChange(e) {
-    console.log("handle change working")
     this.setState({
       [e.target.name]: e.target.value
     })
   }
 
   handleSubmit(e) {
-    console.log("handle submit working")
     e.preventDefault()
+
     this.setState({
       first_name: this.state.first_name,
       last_name: this.state.last_name,
@@ -32,10 +30,13 @@ export default class EditOwnerProfile extends Component {
       location: this.state.location,
       email: this.state.email
     })
+
     const owner = this.state
     const id = this.props.match.params.id
-    editOwner(id, owner)
-    this.props.history.push("/owner/" + id)
+
+    editOwner(id, owner).then(() => {
+      this.props.history.push(`/owner/${id}`)
+    })
   }
 
   render() {

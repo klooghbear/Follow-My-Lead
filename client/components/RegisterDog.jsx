@@ -1,9 +1,9 @@
 import React, { Component } from "react"
 
-import { getDecodedToken } from "authenticare/client"
-
 import { addDog, getDogs } from "../api/dogApi"
-import { getUserDetails } from "../api/walkerApi"
+
+// eslint-disable-next-line no-unused-vars
+import { getDecodedToken } from "authenticare/client"
 
 export default class RegisterDog extends Component {
   constructor(props) {
@@ -42,6 +42,7 @@ export default class RegisterDog extends Component {
 
   handleSubmit(e) {
     e.preventDefault()
+
     addDog({
       name: this.state.name,
       breed: this.state.breed,
@@ -55,7 +56,7 @@ export default class RegisterDog extends Component {
       vet_name: this.state.vet_name,
       vet_contact: this.state.vet_contact
     }).then(() => {
-      this.props.history.push(`/dog/${this.state.id}`)
+      this.props.history.push(`/dogs/${this.state.id}`)
     })
   }
 
@@ -69,6 +70,7 @@ export default class RegisterDog extends Component {
         <div className="form-container">
           <form className="form" onSubmit={this.handleSubmit}>
             <img className="logoform" src="/images/Logo2.png" alt="logo" />
+            
             <label>
               Name:
             </label>

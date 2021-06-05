@@ -1,7 +1,6 @@
 import React from "react"
 import { HashRouter as Router, Route } from "react-router-dom"
 
-// import Footer from './Footer'
 import Nav from "./Nav"
 import Home from "./Home"
 import Login from "./Login"
@@ -11,18 +10,15 @@ import RegisterOwner from "./RegisterOwner"
 import RegisterWalker from "./RegisterWalker"
 import RegisterDog from "./RegisterDog"
 import DogProfileEdit from "./DogProfileEdit"
-
 import OwnerProfile from "./OwnerProfile"
 import WalkerProfile from "./WalkerProfile"
 import EditOwnerProfile from "./EditOwnerProfile"
 import WalkerProfileEdit from "./WalkerProfileEdit"
 import About from "./About"
 import Contact from "./Contact"
-import WorkInProgress from "./WorkInProgress"
 
-const App = () => {
+export default function App() {
   return (
-
     <Router>
       <React.Fragment>
         <Route path="/" component={Nav} />
@@ -40,13 +36,7 @@ const App = () => {
         <Route path='/dogEdit/' component={DogProfileEdit} />
         <Route path="/about" component={About} />
         <Route path="/contact" component={Contact} />
-        <Route path="/social" component={WorkInProgress}/>
-        {/* <Route path="/" component={Footer} /> */}
       </React.Fragment>
     </Router>
   )
 }
-
-export default App
-
-// commented out DogProfile, as component got deleted in merge

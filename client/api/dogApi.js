@@ -2,7 +2,6 @@ import request from "superagent"
 import { getEncodedToken } from "authenticare/client"
 
 const apiDogUrl = "/api/dogs/"
-const dogFeedback = "/api/dogfeedback/"
 
 export function getDogs() {
   return request
@@ -32,8 +31,12 @@ export function addDog(dog) {
     )
 }
 
-export function returnFeedback(id) {
-  return request
-    .get(dogFeedback + id)
-    .then(res => res.body)
+export function editDog(id, owner) {
+  console.log(owner)
+  return request.put(URL + id + "/edit")
+    .set({ Authorization: `Bearer ${getEncodedToken()}` })
+    .set({ Accept: "application/json" })
+    .send(owner)
+    .then(res => res.body.owner)
+    .catch(err => console.log(err))
 }

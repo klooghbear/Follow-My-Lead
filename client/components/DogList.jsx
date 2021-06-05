@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { getDogOwner, getDogs } from "../api/dogApi"
+import { getDogs } from "../api/dogApi"
 import { Link } from "react-router-dom"
 
 export default class DogList extends Component {

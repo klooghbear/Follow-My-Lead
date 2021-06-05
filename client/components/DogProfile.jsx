@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 
-import { getDog, returnFeedback } from "../api/dogApi"
+import { getDog } from "../api/dogApi"
 import { getOwner } from "../api/ownerApi"
 import { getDecodedToken } from "authenticare/client"
 import { getUserDetails } from "../api/walkerApi"
@@ -9,7 +9,7 @@ import { send } from "emailjs-com"
 export default class DogProfile extends Component {
   constructor(props) {
     super(props)
-    // set initial state
+
     this.state = {
       photo: "",
       name: "",
@@ -25,7 +25,6 @@ export default class DogProfile extends Component {
       owner_id: 0,
       owner_name: "",
       owner_email: "",
-      // set user_id to the id stored in our auth token
       user_id: getDecodedToken().id,
       walker_email: "",
       walker_id: 0,
@@ -34,8 +33,6 @@ export default class DogProfile extends Component {
       suburb: "",
       feedback: ""
     }
-    // bind event handler
-    this.handleClick = this.handleClick.bind(this)
   }
 
   componentDidMount() {
@@ -89,37 +86,27 @@ export default class DogProfile extends Component {
             }))
         }
       })
-    // get dog using the current url params
-
-    returnFeedback(this.props.match.params.id)
-      .then(feedbackInfo => {
-        this.setState({
-          feedback: feedbackInfo
-        })
-      })
   }
 
   handleClick(e) {
     e.preventDefault()
-    // switch request_sent state so
+
     this.setState({ request_sent: true })
-    // use Promise.all to return the promises inside as an array
-    Promise.all([
-      getOwner(this.state.owner_id),
-      getUserDetails(this.state.user_id)
-    ])
+
+    const { owner_id: ownerid, user_id: userid } = this.state
+
+    const promise = Promise.all([getOwner(ownerid), getUserDetails(userid)])
       .then(([owner, user]) => {
-        const template_params = {
+        const userID = "user_Zf2pkHv28X6ZJ5OWbpWqp"
+        const serviceID = "Default_service"
+        const templateID = "Dalker_to_owner"
+        const templateParams = {
           owner_email: owner.email,
           owner_name: owner.first_name,
           walker_link: this.state.walker_link + user.walker.id
         }
 
-        const userID = "user_Zf2pkHv28X6ZJ5OWbpWqp"
-        const service_id = "default_service"
-        const template_id = "walker_to_owner"
-
-        return send(service_id, template_id, template_params, userID)
+        return send(serviceID, templateID, templateParams, userID)
       })
       .then((response) => {
         console.log("SUCCESS!", response.status, response.text)
@@ -127,8 +114,11 @@ export default class DogProfile extends Component {
       .catch((error) => {
         console.log("FAILED...", error)
       })
-    this.setState({
-      request_sent: true
+
+    return promise.then(() => {
+      this.setState({
+        request_sent: true
+      })
     })
   }
 
