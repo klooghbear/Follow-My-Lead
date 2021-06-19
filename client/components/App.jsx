@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { HashRouter as Router, Route } from "react-router-dom"
 
 import Nav from "./Nav"
@@ -16,16 +16,40 @@ import EditOwnerProfile from "./EditOwnerProfile"
 import WalkerProfileEdit from "./WalkerProfileEdit"
 import About from "./About"
 import Contact from "./Contact"
+import Loader from "./Loader/Loader.jsx"
 
 export default function App() {
+  const [isLoading, setLoading] = useState(true)
+  const handleLoader = (isLoading) => {
+    setLoading(isLoading)
+  }
+
   return (
     <Router>
       <React.Fragment>
-        <Route path="/" component={Nav} />
-        <Route exact path="/" component={Home} />
-        <Route path="/login" component={Login} />
-        <Route path="/register/owner" component={RegisterOwner} />
-        <Route exact path="/owner/:id" component={OwnerProfile} />
+        <Route path="/" render={() => {
+          return <Nav isLoading={isLoading}/>
+        }}/>
+        <Route exact path="/" render={() => {
+          return isLoading
+            ? <Loader type={"main"}/>
+            : <Home />
+        }}/>
+        <Route path="/login" render={() => {
+          return isLoading
+            ? <Loader type={"main"}/>
+            : <Login handleLoader={handleLoader}/>
+        }}/>
+        <Route path="/register/owner" render={() => {
+          return isLoading
+            ? <Loader type={"main"}/>
+            : <RegisterOwner handleLoader={handleLoader}/>
+        }}/>
+        <Route exact path="/owner/:id" render={({ match }) => {
+          return isLoading
+            ? <Loader type={"main"}/>
+            : <OwnerProfile handleLoader={handleLoader} match={match}/>
+        }}/>
         <Route path="/owner/:id/edit" component={EditOwnerProfile} />
         <Route path="/register/walker" component={RegisterWalker} />
         <Route path="/register/dog" component={RegisterDog} />

@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import { signIn, isAuthenticated, getDecodedToken } from "authenticare/client"
-import { getUserDetails } from "../api/walkerApi"
+import { fetchUser } from "../api/walkerApi"
 
 export default class Login extends Component {
   constructor(props) {
@@ -24,20 +24,30 @@ export default class Login extends Component {
 
     const { username, password } = this.state
     const url = process.env.BASE_API_URL
+    const originUrl = `${window.location.origin}/#`
+    
+    this.props.handleLoader(true)
     
     signIn({ username: username, password: password }, { baseUrl: url })
       .then((token) => {
         if (isAuthenticated()) {
-          getUserDetails(getDecodedToken().id).then(user => {
+          const id = getDecodedToken().id
+
+          fetchUser(id).then((user) => {
             if (user.walker) {
-              this.props.history.push("/walker/" + user.walker.id)
+              location.replace(`${originUrl}/walker/${user.walker.id}`)
             }
             
             if (user.owner) {
-              this.props.history.push("/owner/" + user.owner.id)
+              location.replace(`${originUrl}/owner/${user.owner.id}`)
             }
           })
         }
+      }).catch((error) => {
+        // notify error correctly
+        console.log(error)
+      }).finally(() => {
+        this.props.handleLoader(false)
       })
   }
 
@@ -46,7 +56,7 @@ export default class Login extends Component {
       <div>
         <h1 className="page-title">Login</h1>
         <div className="form-container">
-          <form className="form" onSubmit={this.handleSubmit}>
+          <form className="form" onSubmit={(e) => { this.handleSubmit(e) }}>
             <img className="logoform" src="/images/Logo2.png" alt="logo" />
 
             <label> Username:</label>
@@ -57,7 +67,7 @@ export default class Login extends Component {
               placeholder="username"
               name="username"
               autoComplete="off"
-              onChange={this.handlChange}
+              onChange={(e) => { this.handlChange(e) }}
             />
 
             <label> Password: </label>
@@ -68,7 +78,7 @@ export default class Login extends Component {
               placeholder="password"
               name="password"
               autoComplete="off"
-              onChange={this.handlChange}
+              onChange={(e) => { this.handlChange(e) }}
             />
                   
             <input

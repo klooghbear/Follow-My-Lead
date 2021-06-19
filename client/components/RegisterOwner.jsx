@@ -13,7 +13,8 @@ export default class RegisterOwner extends Component {
       email: "",
       photo: "",
       username: "",
-      password: ""
+      password: "",
+      isLoading: false
     }
   }
 
@@ -26,8 +27,12 @@ export default class RegisterOwner extends Component {
   handleSubmit(e) {
     e.preventDefault()
 
+    this.setState({ isLoading: true })
+
     const { username, password } = this.state
     const url = process.env.BASE_API_URL
+
+    this.props.handleLoader(true)
 
     register({ username: username, password: password }, { baseUrl: url })
       .then((token) => {
@@ -39,10 +44,15 @@ export default class RegisterOwner extends Component {
             location: this.state.location,
             email: this.state.email,
             photo: this.state.photo
-          }).then(() => {
-            this.props.history.push("/login")
           })
         }
+      }).catch((error) => {
+        this.props.handleLoader(false)
+        this.setState({ isLoading: false })
+        console.log(error)
+      }).then(() => {
+        this.props.handleLoader(false)
+        this.props.history.push("/login")
       })
   }
 
@@ -54,7 +64,7 @@ export default class RegisterOwner extends Component {
         </h1>
 
         <div className="form-container">
-          <form className="form" onSubmit={this.handleSubmit}>
+          <form className="form" onSubmit={(event) => this.handleSubmit(event)}>
             <img className="logoform" src="/images/Logo2.png" alt="logo"/>
 
             <label>
@@ -65,7 +75,7 @@ export default class RegisterOwner extends Component {
               className="input"
               type="text"
               name="username"
-              onChange={this.handleChange}
+              onChange={(event) => this.handleChange(event)}
               autoComplete="off"
             />
 
@@ -78,7 +88,7 @@ export default class RegisterOwner extends Component {
               type="password"
               id="pwd"
               name="password"
-              onChange={this.handleChange}
+              onChange={(event) => this.handleChange(event)}
               autoComplete="off"
             />
 
@@ -91,7 +101,7 @@ export default class RegisterOwner extends Component {
               type="password"
               id="pwd"
               name="password"
-              onChange={this.handleChange}
+              onChange={(event) => this.handleChange(event)}
               autoComplete="off"
             />
 
@@ -103,7 +113,7 @@ export default class RegisterOwner extends Component {
               className="input"
               type="text"
               name="first_name"
-              onChange={this.handleChange}
+              onChange={(event) => this.handleChange(event)}
               autoComplete="off"
             />
 
@@ -115,7 +125,7 @@ export default class RegisterOwner extends Component {
               className="input"
               type="text"
               name="last_name"
-              onChange={this.handleChange}
+              onChange={(event) => this.handleChange(event)}
               autoComplete="off"
             />
 
@@ -127,7 +137,7 @@ export default class RegisterOwner extends Component {
               className="input"
               type="text"
               name="location"
-              onChange={this.handleChange}
+              onChange={(event) => this.handleChange(event)}
               autoComplete="off"
             >
               <option value="select">
@@ -168,7 +178,7 @@ export default class RegisterOwner extends Component {
               className="input"
               type="text"
               name="email"
-              onChange={this.handleChange}
+              onChange={(event) => this.handleChange(event)}
               autoComplete="off"
             />
 
@@ -180,13 +190,14 @@ export default class RegisterOwner extends Component {
               className="input"
               type="text"
               name="photo"
-              onChange={this.handleChange}
+              onChange={(event) => this.handleChange(event)}
               autoComplete="off"
             />
 
             <input
               className="button"
               type="submit"
+              disabled={this.isLoading}
               value="Submit"
               autoComplete="off"
             />

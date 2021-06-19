@@ -4,8 +4,8 @@ const imgStyle = {
   height: "5%",
   width: "40%",
   display: "block",
-  "margin-left": "-20%", // half the width (and negative)
-  "padding-left": "50%"
+  marginLeft: "-20%", // half the width (and negative)
+  paddingLeft: "50%"
 }
 
 function About() {

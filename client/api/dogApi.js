@@ -1,42 +1,72 @@
 import request from "superagent"
 import { getEncodedToken } from "authenticare/client"
 
-const apiDogUrl = "/api/dogs/"
+export const getDogs = () => {
+  const path = "/api/dogs/"
 
-export function getDogs() {
-  return request
-    .get(apiDogUrl)
-    .then(res => res.body)
+  return request.get(path).then((dogs) => {
+    const { body } = dogs
+
+    return body
+  }).catch((error) => {
+    Promise.reject(error)
+  })
 }
 
-export function getDog(id) {
-  return request
-    .get(apiDogUrl + id)
-    .then(res => res.body)
+export const getDog = (id) => {
+  const path = `/api/dogs/${id}`
+
+  return request.get(path).then((dog) => {
+    const { body } = dog
+
+    return body
+  }).catch((error) => {
+    Promise.reject(error)
+  })
 }
 
-export function getDogOwner() {
-  return request
-    .get(apiDogUrl)
-    .then(res => res.body)
+export const getDogOwner = () => {
+  const path = "/api/dogs/"
+
+  return request.get(path).then((dogs) => {
+    const { body } = dogs
+
+    return body
+  }).catch((error) => {
+    Promise.reject(error)
+  })
 }
 
-export function addDog(dog) {
-  return request
-    .post(apiDogUrl)
+export const addDog = (dog) => {
+  const path = "/api/dogs/"
+
+  return request.post(path)
     .set({ Authorization: `Bearer ${getEncodedToken()}` })
+    .set({ Accept: "application/json" })
     .send(dog)
-    .then(res =>
-      res.body
-    )
+    .then((dog) => {
+      console.log(dog)
+      const { body } = dog
+
+      return body
+    }).catch((error) => {
+      Promise.reject(error)
+    })
 }
 
-export function editDog(id, owner) {
-  console.log(owner)
-  return request.put(URL + id + "/edit")
+export const editDog = (id, owner) => {
+  const path = `/api/dogs/${id}/edit`
+
+  return request.put(path)
     .set({ Authorization: `Bearer ${getEncodedToken()}` })
     .set({ Accept: "application/json" })
     .send(owner)
-    .then(res => res.body.owner)
-    .catch(err => console.log(err))
+    .then((response) => {
+      console.log(response)
+      const { owner } = response.body
+      
+      return owner
+    }).catch((error) => {
+      Promise.reject(error)
+    })
 }

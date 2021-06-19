@@ -1,365 +1,344 @@
 html {
-    box-sizing: border-box;
-  }
-  body {
-    margin: 0;
-    background-color: whitesmoke;
-    height: 100%;
-    font-family: 'Spartan';
-  }
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  background-color: whitesmoke;
+  height: 100%;
+  font-family: "Spartan";
+}
 
-  /* Navigation CSS */
-  .nav  {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color:#5BC4F1;
-    padding: 5px 16px;
+/* Navigation CSS */
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #5bc4f1;
+  padding: 5px 16px;
 }
 
 .nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;    
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
 }
 
 .nav li {
-    float: right;
-    display: block;
+  float: right;
+  display: block;
   color: white;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
-  font-family: 'Love Ya Like A Sister';
-  font-size:  25px;
+  font-family: "Love Ya Like A Sister";
+  font-size: 25px;
 }
 
 .nav li:hover {
-    background-color: #111;
-
+  background-color: #111;
 }
 
 .nav-link {
-    text-decoration: none;
-    color: white;
-    
+  text-decoration: none;
+  color: white;
 }
 
 .logo {
-    height: 140px;
-    width: 140px;
+  height: 140px;
+  width: 140px;
 }
-
 
 /* HomePage CSS */
-  .home-image {
-      height: 40%;
-      width: 100%;
-      background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
+.home-image {
+  height: 40%;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+.home-page-headline {
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: "Love Ya Like A Sister";
+  color: white;
+  font-size: 5em;
+}
 
-    }
-    .home-page-headline {
-        position: absolute;
-        top: 35%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        font-family: 'Love Ya Like A Sister';
-        color:white;
-        font-size: 5em;
-    }
+.home-page-ptag {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: "courgette";
+  font-size: 3em;
+  color: white;
+}
 
-    .home-page-ptag {
-        position: absolute;
-        top: 45%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        font-family: 'courgette';
-        font-size: 3em;
-        color: white;
-    }
+.register-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap;
+  position: absolute;
+  top: 90%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 
-    .register-buttons {
-        display: flex;
-        justify-content: center;
-        flex-wrap: nowrap;
-        position: absolute;
-        top: 90%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        
-        
-        
-    }
-    
-    .button {
-    
-    background-color: rgb(32, 40, 41);
-      border: none;
-      color: white;
-      padding: 15px 32px;
-      text-align: center;
-      text-decoration: none;
-      display: inline-block;
-      font-size: 20px;
-      margin: 4px 2px;
-      cursor: pointer;
-      transition-duration: 0.4s;
-      border-radius: 10px;
-      
-     }
+.button {
+  background-color: rgb(32, 40, 41);
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  margin: 4px 2px;
+  cursor: pointer;
+  transition-duration: 0.4s;
+  border-radius: 10px;
+}
 
-     .button:hover {
-        background-color: white;
-        color: black;
-    
-     }
-    
-    
-    
-    .blurb-container {
-        
-        
-        width: 70%;
-        max-width: 750px;
-        margin-left: auto;
-        margin-right: auto;
-        padding: 2%;
-        
-    }
-    
-    .blurb-headline {
-        font-family: 'Courgette';
-        font-size: 40px;
-        text-align: center;
-        
-    }
-    
-    .blurb-text {
-        font-family: Arial, Helvetica, sans-serif;
-        font-size: 20px;
-    
-    }
+.button:hover {
+  background-color: white;
+  color: black;
+}
 
-    /* Profile CSS */
+.blurb-container {
+  width: 70%;
+  max-width: 750px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 2%;
+}
 
-    .page-title {
-        font-family: 'courgette';
-        margin: 3%;
-        color: rgb(55, 53, 53);
-        font-size: 50px;
+.blurb-headline {
+  font-family: "Courgette";
+  font-size: 40px;
+  text-align: center;
+}
 
-    }
+.blurb-text {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+}
 
-       
+/* Profile CSS */
 
+.page-title {
+  font-family: "courgette";
+  margin: 3%;
+  color: rgb(55, 53, 53);
+  font-size: 50px;
+}
 
+.profile-container {
+  width: 40%;
+  margin: 0 auto;
+  margin-bottom: 3%;
+  text-align: center;
+  background-color: rgba(151, 163, 142, 0.4);
+  border-radius: 3%;
+  padding: 1%;
+  box-shadow: 5px 10px 18px grey;
+}
 
-    
+.profile-picture {
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  border-width: 5px;
+  padding: 4%;
+}
 
-    .profile-container {
-        width: 40%;
-        margin: 0 auto;
-        margin-bottom: 3%;
-        text-align: center;
-        background-color: rgba(151, 163, 142, 0.4);
-        border-radius:3%;
-        padding: 1%;
-        box-shadow: 5px 10px 18px grey;
-    }
+.profile-heading {
+  font-size: x-large;
+  padding: 3%;
+}
 
-    .profile-picture {
-        height: 200px;
-        width: 200px;
-        border-radius: 50%;
-        border-width: 5px;
-        padding: 4%;
-    }
-
-    .profile-heading {
-        font-size: x-large;
-        padding: 3%;
-    }
-
-    .profile-info {
-        text-align: left;
-    }
-
-  
-
-
+.profile-info {
+  text-align: left;
+}
 
 .dog-align {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
 }
-
-
 
 .doglist {
-    height: 250px;
-    width: 250px;
-    border-radius: 3%;
-    padding: 1%;
-    margin: 1%;
-    display: inline-block;
-    text-align: center;
-    justify-content: center;
-    background-color: rgba(151, 163, 142, 0.4);
-    box-shadow: 5px 10px 18px grey;
-    
-    
-
+  height: 250px;
+  width: 250px;
+  border-radius: 3%;
+  padding: 1%;
+  margin: 1%;
+  display: inline-block;
+  text-align: center;
+  justify-content: center;
+  background-color: rgba(151, 163, 142, 0.4);
+  box-shadow: 5px 10px 18px grey;
 }
 
-
-
-
 .dogphoto {
-    border-radius: 50%;
-    height: 200px;
-    width: 200px;
-    transform: scale(1);
-    transition: .3s ease-in-out;
+  border-radius: 50%;
+  height: 200px;
+  width: 200px;
+  transform: scale(1);
+  transition: 0.3s ease-in-out;
 }
 
 .dogphoto:hover {
-    transition: box-shadow .6s cubic-bezier(.86,0,.07,1),transform .4s cubic-bezier(.86,0,.07,1),-webkit-box-shadow .6s cubic-bezier(.86,0,.07,1),-webkit-transform .4s cubic-bezier(.86,0,.07,1);
-	transform: scale(1.1);
-	transition: .3s ease-in-out;
+  transition: box-shadow 0.6s cubic-bezier(0.86, 0, 0.07, 1),
+    transform 0.4s cubic-bezier(0.86, 0, 0.07, 1),
+    -webkit-box-shadow 0.6s cubic-bezier(0.86, 0, 0.07, 1),
+    -webkit-transform 0.4s cubic-bezier(0.86, 0, 0.07, 1);
+  transform: scale(1.1);
+  transition: 0.3s ease-in-out;
 }
 
 .dogprofiledisplay {
-    text-align: center;
-    
+  text-align: center;
 }
-
 
 .form-container {
-    width: 40%;
-    margin: 0 auto;
-    margin-bottom: 3%;
-    text-align: center;
-    padding: 1%;
-    background-color: rgba(151, 163, 142, 0.4);
-    box-shadow: 5px 10px 18px grey;
-    border-radius: 3%;
+  width: 40%;
+  margin: 0 auto;
+  margin-bottom: 3%;
+  text-align: center;
+  padding: 1%;
+  background-color: rgba(151, 163, 142, 0.4);
+  box-shadow: 5px 10px 18px grey;
+  border-radius: 3%;
 }
 
-.form-container:hover .logoform  {
-    transform: rotate(30deg);
-} 
-
+.form-container:hover .logoform {
+  transform: rotate(30deg);
+}
 
 .form {
-    
-    color: black;
-    
+  color: black;
 }
 
-
-
 label {
-    font-size: medium;
-    text-align: left;
+  font-size: medium;
+  text-align: left;
 }
 
 .logoform {
-    height:100px;
-    width: 100px;
-    transition: transform .3s ease-in-out;
+  height: 100px;
+  width: 100px;
+  transition: transform 0.3s ease-in-out;
 }
 
 .logoform:hover {
-    transform: rotate(30deg);
-    transform: rotate(30deg);
+  transform: rotate(30deg);
+  transform: rotate(30deg);
 }
 
 .input {
-    width: 60%;
-    background-color: white;
-    color: black;
-    font-size: 20px;
-    margin:8px 0;
-    border: none;
-    border-style: solid;
-    border-color: white;
-    transform: scale(1);
-    transition: .3s ease-in-out;
-    box-shadow: 5px 5px 5px grey;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    border-radius: 10px;
-    padding: 1%;
-   
+  width: 60%;
+  background-color: white;
+  color: black;
+  font-size: 20px;
+  margin: 8px 0;
+  border: none;
+  border-style: solid;
+  border-color: white;
+  transform: scale(1);
+  transition: 0.3s ease-in-out;
+  box-shadow: 5px 5px 5px grey;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  border-radius: 10px;
+  padding: 1%;
 }
 
 .input:hover {
-    background-color: white;
-    transform: scale(1.02);
-    transition: .3s ease-in-out;
-    color: black;
+  background-color: white;
+  transform: scale(1.02);
+  transition: 0.3s ease-in-out;
+  color: black;
 }
 
 h1 {
-    text-align: center;
+  text-align: center;
 }
-
 
 .footer {
-    position:relative;
-    left:0px;
-    bottom:0px;
-    height:50px;
-    width:100%;
-    background-color:#5BC4F1;
-    text-align: center;
+  position: relative;
+  left: 0px;
+  bottom: 0px;
+  height: 50px;
+  width: 100%;
+  background-color: #5bc4f1;
+  text-align: center;
 }
 .fa {
-    padding: 15px;
-    font-size: 20px;
-    width: 30px;
-    text-align: center;
-    text-decoration: none;
+  padding: 15px;
+  font-size: 20px;
+  width: 30px;
+  text-align: center;
+  text-decoration: none;
 }
 
 .fa-facebook {
-    background: #5BC4F1;
-    color: white;
-  }
-  
-  
-  .fa-twitter {
-    background: #5BC4F1;
-    color: white;
-  }
-
-  .fa-instagram {
-    background: #5BC4F1;
-    color: white;
-  }
-
-
-
-
-.move {
-    font-family: 'Montserrat Subrayada', sans-serif;
-    background-color: rgb(32, 40, 41);
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 20px;
-    margin: 4px 2px;
-    cursor: pointer;
-    transition-duration: 0.4s;
-
+  background: #5bc4f1;
+  color: white;
 }
 
-  
+.fa-twitter {
+  background: #5bc4f1;
+  color: white;
+}
 
+.fa-instagram {
+  background: #5bc4f1;
+  color: white;
+}
+
+.move {
+  font-family: "Montserrat Subrayada", sans-serif;
+  background-color: rgb(32, 40, 41);
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  margin: 4px 2px;
+  cursor: pointer;
+  transition-duration: 0.4s;
+}
+
+.app-loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.app-loader__icon {
+  margin: 10px;
+  background-color: #333;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  animation: blinker 1.25s linear infinite;
+}
+
+.app-loader__icon:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.app-loader__icon:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}

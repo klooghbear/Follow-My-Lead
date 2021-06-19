@@ -20,7 +20,7 @@ export function getWalkers(URL) {
     })
 }
 
-export function getUserDetails(id) {
+export function fetchUser(id) {
   return request.get("/api/user/" + id)
     .set({ Authorization: `Bearer ${getEncodedToken()}` })
     .set({ "Content-Type": "application/json" })

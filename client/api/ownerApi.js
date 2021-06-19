@@ -1,27 +1,42 @@
 import request from "superagent"
 import { getEncodedToken } from "authenticare/client"
 
-const URL = "/api/owner/"
+export const addOwner = (owner) => {
+  const path = "/api/owner/"
 
-export function addOwner(owner) {
-  return request.post(URL)
+  return request.post(path)
     .set({ Authorization: `Bearer ${getEncodedToken()}` })
     .set({ "Content-Type": "application/json" })
     .send(owner)
+    .catch((error) => {
+      Promise.reject(error)
+    })
 }
 
-export function getOwner(id) {
-  return request
-    .get(URL + id)
-    .then(response => response.body)
+export const getOwner = (id) => {
+  const path = `/api/owner/${id}`
+
+  return request.get(path).then((owner) => {
+    const { body } = owner
+
+    return body
+  }).catch((error) => {
+    Promise.reject(error)
+  })
 }
 
-export function editOwner(id, owner) {
-  console.log(owner)
-  return request.put(URL + id + "/edit")
+export const editOwner = (id, owner) => {
+  const path = `/api/owner/${id}/edit`
+
+  return request.put(path)
     .set({ Authorization: `Bearer ${getEncodedToken()}` })
     .set({ Accept: "application/json" })
     .send(owner)
-    .then(res => res.body.owner)
-    .catch(err => console.log(err))
+    .then((res) => {
+      const { owner } = res.body
+
+      return owner
+    }).catch((error) => {
+      Promise.reject(error)
+    })
 }
