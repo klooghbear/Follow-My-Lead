@@ -3,7 +3,7 @@ import React, { Component } from "react"
 import { getDog } from "../api/dogApi"
 import { getOwner } from "../api/ownerApi"
 import { getDecodedToken } from "authenticare/client"
-import { getUserDetails } from "../api/walkerApi"
+import { fetchUser } from "../api/walkerApi"
 import { send } from "emailjs-com"
 
 export default class DogProfile extends Component {
@@ -37,7 +37,7 @@ export default class DogProfile extends Component {
 
   componentDidMount() {
     // get user details so we can determine the type of user
-    getUserDetails(this.state.user_id)
+    fetchUser(this.state.user_id)
       .then(user => {
         if (user.walker) {
           this.setState({ walker_id: user.walker.id })
@@ -95,7 +95,7 @@ export default class DogProfile extends Component {
 
     const { owner_id: ownerid, user_id: userid } = this.state
 
-    const promise = Promise.all([getOwner(ownerid), getUserDetails(userid)])
+    const promise = Promise.all([getOwner(ownerid), fetchUser(userid)])
       .then(([owner, user]) => {
         const userID = "user_Zf2pkHv28X6ZJ5OWbpWqp"
         const serviceID = "Default_service"
